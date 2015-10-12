@@ -1,0 +1,13 @@
+@mixin define-base-typography() {
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+
+  @each $breakpoint, $bases in $responsive-typography {
+
+    @media (min-width: breakpoint-value-to-em($breakpoint)) {
+      font-size: map-get($bases, 'base-font-size');
+      line-height: map-get($bases, 'base-line-height');
+    }
+
+  }
+}

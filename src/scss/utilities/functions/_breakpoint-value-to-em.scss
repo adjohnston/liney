@@ -1,0 +1,17 @@
+//  --------------------------------------------
+//  breakpoint value to em : functions : utilities
+//  --------------------------------------------
+
+    @function _to-em($value) {
+      @return $value / 16px + em;
+    }
+
+    @function breakpoint-value-to-em($key) {
+      $value: $key;
+
+      @if map-has-key($breakpoints, $key) {
+        $value: map-get($breakpoints, $key);
+      }
+
+      @return _to-em($value);
+    }

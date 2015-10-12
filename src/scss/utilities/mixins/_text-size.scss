@@ -1,0 +1,30 @@
+//  ------------------------------
+//  text size : mixins : utilities
+//  ------------------------------
+
+    @function _nearest-quarter-value-to-rem($value, $multiplier) {
+      @return round($value * $multiplier) * 4 / 4 + rem;
+    }
+
+    @function _line-height-to-rem($value, $multiplier) {
+      @return ($value * $multiplier) * 4 / 4 + rem;
+    }
+
+
+    @mixin text-size ($multiplier: 1, $is-responsive: true) {
+      $line-height: 'base-line-height';
+
+      @if $is-responsive and $is-responsive == true {
+        @each $breakpoint, $bases in $responsive-typography {
+
+          @media (min-width: breakpoint-value-to-em($breakpoint)) {
+            line-height: _line-height-to-rem(map-get($bases, $line-height), $multiplier);
+          }
+
+        }
+      } @else {
+        line-height: _nearest-quarter-value-to-rem($base-line-height, $multiplier);
+      }
+
+      font-size: $multiplier + rem;
+    }

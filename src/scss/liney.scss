@@ -1,0 +1,44 @@
+//  -----
+//  liney
+//  -----
+
+    @import
+
+//  settings
+    // 'settings',
+
+
+//  utilities
+    //  variables
+        'utilities/variables/typography',
+        'utilities/variables/breakpoints',
+
+    //  functions
+        'utilities/functions/breakpoint-value-to-em',
+        'utilities/functions/gap',
+
+    //  mixins
+        'utilities/mixins/define-base-typography',
+        'utilities/mixins/text-size';
+
+
+
+html {
+  @include define-base-typography;
+}
+
+h1 {
+  @include text-size(1.2);
+
+  margin: 0 0 gap();
+}
+
+p {
+  @include text-size;
+
+  margin: 0 0 gap();
+}
+
+small {
+  @include text-size(.8);
+}
