@@ -18,19 +18,32 @@
       }
     }
 
-    @mixin text-size ($multiplier: 1, $is-responsive: true) {
-      $line-height: 'base-line-height';
 
-      @if $is-responsive and $is-responsive == true {
+    @mixin text-size ($multiplier: 1, $args: ()) {
+      $args: map-merge((
+        'is-responsive': true,
+        'is-strict': true
+      ), $args);
+
+      @if map-get($args, 'is-responsive') {
         @each $breakpoint, $bases in $responsive-typography {
+          $line-height: map-get($bases, 'base-line-height');
 
           @media (min-width: breakpoint-value-to-em($breakpoint)) {
-            line-height: _line-height-to-rem(map-get($bases, $line-height), $multiplier);
+            @if map-get($args, 'is-strict') {
+              @include _line-height($line-height, $multiplier, true);
+            } @else {
+              @include _line-height($line-height, $multiplier);
+            }
           }
 
         }
       } @else {
-        line-height: _nearest-quarter-value-to-rem($base-line-height, $multiplier);
+        @if map-get($args, 'is-strict') {
+          @include _line-height($base-line-height, $multiplier, true);
+        } @else {
+          @include _line-height($base-line-height, $multiplier);
+        }
       }
 
       font-size: $multiplier + rem;
