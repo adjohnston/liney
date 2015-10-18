@@ -2,31 +2,31 @@
 //  gap : functions : utilities
 //  ---------------------------
 
-    @function _gap-to-rem($font-size, $line-height, $multiplier, $pixel-offset) {
-      @return ($line-height * $multiplier * $font-size + $pixel-offset) / $font-size + rem;
+    @function _px-to-rem-number($px) {
+      @return $px / 16px;
     }
 
-    @function gap(
-      $multiplier: 1,
-      $pixel-offset: 0px,
-      $use-line-height: true,
-      $is-responsive: true) {
+    @function _rem-to-px($rem-value) {
+      @return $rem-value * 16px;
+    }
 
-      @if $use-line-height {
-        @if $is-responsive {
+    @function _round-to-nearest-quarter($value) {
+      @return round($value * 4) / 4;
+    }
 
-          @each $viewport, $bases in $responsive-typography {
-            $font-size: map-get($bases, 'base-font-size');
-            $line-height: map-get($bases, 'base-line-height');
 
-            @return _gap-to-rem($font-size, $line-height, $multiplier, $pixel-offset);
-          }
+    @function gap($multiplier: 1, $args: ()) {
+      $args: map-merge((
+        'pixel-offset': 0px,
+        'is-strict': false
+      ), $args);
 
-        }
+      $pixel-offset: map-get($args, 'pixel-offset');
+      $gap: _px-to-rem-number(_rem-to-px($multiplier) + $pixel-offset);
 
-        @return _gap-to-rem($base-font-size, $base-line-height, $multiplier, $pixel-offset);
+      @if not map-get($args, 'is-strict') {
+        @return $gap + rem;
       }
 
-      @return $multiplier + $pixel-offset rem;
-
+      @return _round-to-nearest-quarter($gap) + rem;
     }
