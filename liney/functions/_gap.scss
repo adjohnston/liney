@@ -1,0 +1,32 @@
+//  ---------------------------
+//  gap : functions : utilities
+//  ---------------------------
+
+    @function _px-to-rem-number($px) {
+      @return $px / 16px;
+    }
+
+    @function _rem-to-px($rem-value) {
+      @return $rem-value * 16px;
+    }
+
+    @function _round-to-nearest-quarter($value) {
+      @return round($value * 4) / 4;
+    }
+
+
+    @function gap($multiplier: 1, $args: ()) {
+      $args: map-merge((
+        'pixel-offset': 0px,
+        'is-strict': false
+      ), $args);
+
+      $pixel-offset: map-get($args, 'pixel-offset');
+      $gap: _px-to-rem-number(_rem-to-px($multiplier) + $pixel-offset);
+
+      @if not map-get($args, 'is-strict') {
+        @return $gap + rem;
+      }
+
+      @return _round-to-nearest-quarter($gap) + rem;
+    }

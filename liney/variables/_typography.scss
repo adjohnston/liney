@@ -1,0 +1,42 @@
+//  ----------------------------------
+//  typography : variables : utilities
+//  ----------------------------------
+
+//  default
+//  -------
+    $base-font-size:   20px;
+    $base-line-height: 1.4;
+
+
+//  base responsive typography
+//  ==  NOTES  ================================================================
+//  this map allows you to set some base font sizes that will be iterated upon
+//  and used for setup on the HTML tag.
+//  ===========================================================================
+//  the keys are designed to map against another map, our breakpoint map and
+//  that's where you can define at what size to be affected at.
+//  ---------------------------------------------------------------------------
+    $responsive-typography: (
+      'mob': (
+        'base-font-size':   16px,
+        'base-line-height': 1.5
+      ),
+
+      'tab': (
+        'base-font-size': 18px,
+        'base-line-height': 1.33333
+      ),
+
+      'lap': (
+        'base-font-size':   20px,
+        'base-line-height': 1.4
+      ),
+
+      2048px: (
+        'base-font-size':   28px,
+        'base-line-height': 1.4285714286
+      ),
+    );
+
+
+    $use-liney-guide: true;

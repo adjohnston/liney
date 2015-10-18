@@ -1,0 +1,62 @@
+//  -----
+//  liney
+//  -----
+
+    @import
+
+//  settings
+    // 'settings',
+
+
+//  utilities
+    //  variables
+        'variables/typography',
+        'variables/breakpoints',
+
+    //  functions
+        'functions/breakpoint-value-to-em',
+        'functions/gap',
+
+    //  mixins
+        'mixins/define-base-typography',
+        'mixins/text-size';
+
+
+    //  liney guide
+        @if $use-liney-guide {
+          @import 'liney-guide/liney-guide';
+        }
+
+
+
+html {
+  @include define-base-typography;
+}
+
+h1 {
+  @include text-size(2.25);
+
+  margin: 0 0 gap();
+}
+
+h2 {
+  @include text-size(1.85);
+
+  margin: 0 0 gap();
+}
+
+h3 {
+  @include text-size(1.55);
+
+  margin: 0 0 gap();
+}
+
+p {
+  @include text-size;
+
+  margin: 0 0 gap();
+}
+
+small {
+  @include text-size(.8);
+}
