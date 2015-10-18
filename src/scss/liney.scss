@@ -22,6 +22,12 @@
         'utilities/mixins/text-size';
 
 
+    //  liney guide
+        @if $use-liney-guide {
+          @import 'utilities/liney-guide/liney-guide';
+        }
+
+
 
 html {
   @include define-base-typography;
