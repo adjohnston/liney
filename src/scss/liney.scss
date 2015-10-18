@@ -34,7 +34,19 @@ html {
 }
 
 h1 {
-  @include text-size(1.2);
+  @include text-size(2.25);
+
+  margin: 0 0 gap();
+}
+
+h2 {
+  @include text-size(1.85);
+
+  margin: 0 0 gap();
+}
+
+h3 {
+  @include text-size(1.55);
 
   margin: 0 0 gap();
 }

@@ -4,8 +4,8 @@
 
 //  default
 //  -------
-    $base-font-size:   16px;
-    $base-line-height: 1.5;
+    $base-font-size:   20px;
+    $base-line-height: 1.4;
 
 
 //  base responsive typography
@@ -18,13 +18,18 @@
 //  ---------------------------------------------------------------------------
     $responsive-typography: (
       'mob': (
-        'base-font-size':   14px,
-        'base-line-height': 1.4285714286
+        'base-font-size':   16px,
+        'base-line-height': 1.5
+      ),
+
+      'tab': (
+        'base-font-size': 18px,
+        'base-line-height': 1.33333
       ),
 
       'lap': (
-        'base-font-size':   16px,
-        'base-line-height': 1.5
+        'base-font-size':   20px,
+        'base-line-height': 1.4
       ),
 
       2048px: (
