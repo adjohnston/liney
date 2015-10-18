@@ -2,14 +2,21 @@
 //  text size : mixins : utilities
 //  ------------------------------
 
-    @function _nearest-quarter-value-to-rem($value, $multiplier) {
-      @return round($value * $multiplier) * 4 / 4 + rem;
+    @function _line-height-as-rem($line-height, $multiplier) {
+      @return $line-height * $multiplier + rem;
     }
 
-    @function _line-height-to-rem($value, $multiplier) {
-      @return ($value * $multiplier) * 4 / 4 + rem;
+    @function _nearest-quarter-value-as-rem($line-height, $multiplier) {
+      @return round($line-height * $multiplier * 4) / 4 + rem;
     }
 
+    @mixin _line-height($line-height, $multiplier, $is-strict) {
+      @if $is-strict {
+        line-height: _nearest-quarter-value-as-rem($line-height, $multiplier);
+      } @else {
+        line-height: _line-height-as-rem($line-height, $multiplier);
+      }
+    }
 
     @mixin text-size ($multiplier: 1, $is-responsive: true) {
       $line-height: 'base-line-height';
