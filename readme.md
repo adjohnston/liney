@@ -1,6 +1,5 @@
 # Liney
-## Base Line Height Helpers & Guide Bookmarklet
-###### _(Or a blhhgbm for short…)_
+##### Base Line Height Helpers & Guide Bookmarklet
 
 ## Getting Started
 Firstly you should copy the liney directory into your own Sass architecture. I personally have a third party directory which is included before my own styles.
