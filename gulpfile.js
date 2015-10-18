@@ -3,20 +3,11 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     cmq = require('gulp-combine-mq');
 
-gulp.task('sass', function () {
+gulp.task('liney', function () {
   gulp.src('./src/scss/**/*.scss')
     .pipe(plumber())
     .pipe(sass())
+    .pipe(cmq())
     .pipe(plumber.stop())
     .pipe(gulp.dest('./src/css/'));
-});
-
-gulp.task('cmq', ['sass'], function () {
-  gulp.src('./src/css/**/*.css')
-    .pipe(cmq())
-    .pipe(gulp.dest('./dest/css'));
-})
-
-gulp.task('watch', function () {
-  gulp.watch('**/*.scss', ['cmq']);
 });
