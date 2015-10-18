@@ -10,21 +10,21 @@
 
 //  utilities
     //  variables
-        'utilities/variables/typography',
-        'utilities/variables/breakpoints',
+        'variables/typography',
+        'variables/breakpoints',
 
     //  functions
-        'utilities/functions/breakpoint-value-to-em',
-        'utilities/functions/gap',
+        'functions/breakpoint-value-to-em',
+        'functions/gap',
 
     //  mixins
-        'utilities/mixins/define-base-typography',
-        'utilities/mixins/text-size';
+        'mixins/define-base-typography',
+        'mixins/text-size';
 
 
     //  liney guide
         @if $use-liney-guide {
-          @import 'utilities/liney-guide/liney-guide';
+          @import 'liney-guide/liney-guide';
         }
 
 

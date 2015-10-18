@@ -4,10 +4,10 @@ var gulp = require('gulp'),
     cmq = require('gulp-combine-mq');
 
 gulp.task('liney', function () {
-  gulp.src('./src/scss/**/*.scss')
+  gulp.src('./liney/**/*.scss')
     .pipe(plumber())
     .pipe(sass())
     .pipe(cmq())
     .pipe(plumber.stop())
-    .pipe(gulp.dest('./src/css/'));
+    .pipe(gulp.dest('./css/'));
 });
