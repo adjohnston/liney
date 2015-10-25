@@ -3,47 +3,28 @@
 //  ------------------------------
 
     @function _line-height-as-rem($line-height, $multiplier) {
-      @return $line-height * $multiplier + rem;
+      @return ($line-height * (round($multiplier * 4) / 4) + 0.01) + rem;
     }
 
-    @function _nearest-quarter-value-as-rem($line-height, $multiplier) {
-      @return round($line-height * $multiplier * 4) / 4 + rem;
-    }
-
-    @mixin _line-height($line-height, $multiplier, $is-strict) {
-      @if $is-strict {
-        line-height: _nearest-quarter-value-as-rem($line-height, $multiplier);
-      } @else {
-        line-height: _line-height-as-rem($line-height, $multiplier);
-      }
+    @mixin _line-height($line-height, $multiplier) {
+      line-height: _line-height-as-rem($line-height, $multiplier);
     }
 
 
-    @mixin text-size ($multiplier: 1, $args: ()) {
-      $args: map-merge((
-        'is-responsive': true,
-        'is-strict': true
-      ), $args);
+    @mixin text-size ($multiplier: 1, $is-responsive: true) {
 
-      @if map-get($args, 'is-responsive') {
-        @each $breakpoint, $bases in $responsive-typography {
+      @if $is-responsive {
+        @each $breakpoint, $bases in $liney-responsive-typography {
+
           $line-height: map-get($bases, 'base-line-height');
 
           @media (min-width: breakpoint-value-to-em($breakpoint)) {
-            @if map-get($args, 'is-strict') {
-              @include _line-height($line-height, $multiplier, true);
-            } @else {
-              @include _line-height($line-height, $multiplier);
-            }
+            @include _line-height($line-height, $multiplier);
           }
 
         }
       } @else {
-        @if map-get($args, 'is-strict') {
-          @include _line-height($base-line-height, $multiplier, true);
-        } @else {
-          @include _line-height($base-line-height, $multiplier);
-        }
+        @include _line-height($base-line-height, $multiplier);
       }
 
       font-size: $multiplier + rem;

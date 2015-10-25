@@ -7,22 +7,40 @@
   pointer-events: none;
 
   &__label {
+    padding: .5rem;
+    background: fade-out(#e9ecd9, .2);
+    font: 12px/20px helvetica, arial, sans-serif;
+    display: flex;
+    justify-content: flex-end;
     pointer-events: auto;
+  }
+
+  &__input {
+    margin: auto .5rem auto 0;
+  }
+
+  &__input:checked ~ &__lines {
+    opacity: 1;
   }
 
   &__lines {
     width: 100%;
     height: 100%;
-    background-image: repeating-linear-gradient(transparent 0, transparent calc(1rem - 1px), teal 1rem);
     transition: opacity 0.2s;
     opacity: 0;
     pointer-events: none;
     position: absolute;
     top: 0;
     left: 0;
-  }
 
-  &__input:checked ~ &__lines {
-    opacity: 1;
+    @each $breakpoint, $bases in $liney-responsive-typography {
+
+      $base-line-height: map-get($bases, 'base-line-height') + rem;
+
+      @media (min-width: breakpoint-value-to-em($breakpoint)) {
+        background-image: repeating-linear-gradient(transparent 0, transparent calc(#{$base-line-height} - 1px), teal $base-line-height);
+      }
+
+    }
   }
 }

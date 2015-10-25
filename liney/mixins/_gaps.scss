@@ -1,0 +1,24 @@
+//  -------------
+//  gaps : mixins
+//  -------------
+
+@function _gap($multiplier, $base-line-height) {
+  @return $multiplier * $base-line-height + rem;
+}
+
+
+@mixin gaps($gaps) {
+  @each $gap, $props in $gaps {
+    @each $breakpoint, $bases in $liney-responsive-typography {
+
+      @media (min-width: breakpoint-value-to-em($breakpoint)) {
+        @each $prop in $props {
+
+          #{$prop}: _gap($gap, map-get($bases, 'base-line-height'));
+
+        }
+      }
+
+    }
+  }
+}

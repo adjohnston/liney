@@ -1,0 +1,61 @@
+//  --------
+//  settings
+//  --------
+
+//  default typography sizes
+//  ---------------------------------------------------------------------------
+$liney-base-font-size:   20px;
+$liney-base-line-height: 1.4;
+
+
+//  responsive typography sizes
+//  ==  NOTES  ================================================================
+//  this map allows you to set some base font sizes that will be iterated upon
+//  and used for setup on the HTML tag.
+//  ===========================================================================
+//  the keys are designed to map against another map, our breakpoint map and
+//  that's where you can define at what size to be affected at.
+//  ---------------------------------------------------------------------------
+$liney-responsive-typography: (
+  'mob': (
+    'base-font-size':   16px,
+    'base-line-height': 1.5
+  ),
+
+  'tab': (
+    'base-font-size': 18px,
+    'base-line-height': 1.56
+  ),
+
+  'lap': (
+    'base-font-size':   20px,
+    'base-line-height': 1.4
+  ),
+
+  2048px: (
+    'base-font-size':   28px,
+    'base-line-height': 1.43
+  ),
+);
+
+
+//  responsive typography base map
+//  ==  NOTES  ================================================================
+//  this map allows you to set some base font sizes that will be iterated
+//  upon and used for setup on the HTML tag.
+//  ===========================================================================
+//  the keys are designed to map against another map, our breakpoint map and
+//  that's where you can define at what size to be affected at.
+//  ---------------------------------------------------------------------------
+$liney-breakpoints: (
+  'mob':  0px,
+  'phab': 480px,
+  'tab':  774px,
+  'lap':  992px,
+  'desk': 1440px
+);
+
+
+//  guide
+//  ---------------------------------------------------------------------------
+$use-liney-guide: true;
