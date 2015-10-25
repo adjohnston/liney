@@ -10,6 +10,15 @@ Finally, if you're using Gulp to parse your Sass I suggest adding `gulp-combine-
 
 ### Changelog
 
-`[0.0.1] - 2015-10-18`
+#####`[0.0.2] - 2015-10-25`
+###### Changed
+- `text-size()` mixin + removed strict-mode
+- Nicer demo styling
+- Better looking guide toggle
+
+###### Added
+- `gaps()` mixin to handle spacing based on `line-height` and not `font-size`
+
+#####`[0.0.1] - 2015-10-18`
 ###### Added
 - Initial release
