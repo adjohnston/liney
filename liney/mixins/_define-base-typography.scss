@@ -1,13 +1,17 @@
-@mixin define-base-typography() {
-  font-size: $base-font-size;
-  line-height: $base-line-height;
+//  -------------------------------
+//  define base typography : mixins
+//  -------------------------------
 
-  @each $breakpoint, $bases in $responsive-typography {
+@mixin define-base-typography() {
+  font-size: $liney-base-font-size;
+  line-height: $liney-base-line-height;
+
+  @each $breakpoint, $bases in $liney-responsive-typography {
 
     @media (min-width: breakpoint-value-to-em($breakpoint)) {
       font-size: map-get($bases, 'base-font-size');
       line-height: map-get($bases, 'base-line-height');
     }
-
+    
   }
 }

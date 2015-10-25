@@ -9,8 +9,8 @@
     @function breakpoint-value-to-em($key) {
       $value: $key;
 
-      @if map-has-key($breakpoints, $key) {
-        $value: map-get($breakpoints, $key);
+      @if map-has-key($liney-breakpoints, $key) {
+        $value: map-get($liney-breakpoints, $key);
       }
 
       @return _to-em($value);

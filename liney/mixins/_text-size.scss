@@ -18,6 +18,8 @@
       }
     }
 
+      @if $is-responsive {
+        @each $breakpoint, $bases in $liney-responsive-typography {
 
     @mixin text-size ($multiplier: 1, $args: ()) {
       $args: map-merge((
