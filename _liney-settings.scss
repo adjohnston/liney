@@ -4,8 +4,8 @@
 
 //  default typography sizes
 //  ---------------------------------------------------------------------------
-$liney-base-font-size:   20px;
-$liney-base-line-height: 1.4;
+$liney-base-font-size:   20px !default;
+$liney-base-line-height: 1.4 !default;
 
 
 //  responsive typography sizes
@@ -36,7 +36,7 @@ $liney-responsive-typography: (
     'base-font-size':   28px,
     'base-line-height': 1.43
   ),
-);
+) !default;
 
 
 //  responsive typography base map
@@ -53,9 +53,9 @@ $liney-breakpoints: (
   'tab':  774px,
   'lap':  992px,
   'desk': 1440px
-);
+) !default;
 
 
 //  guide
 //  ---------------------------------------------------------------------------
-$use-liney-guide: true;
+$use-liney-guide: true !default;
