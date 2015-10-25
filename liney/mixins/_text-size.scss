@@ -3,7 +3,7 @@
 //  ------------------------------
 
     @function _line-height-as-rem($line-height, $multiplier) {
-      @return $line-height * $multiplier + rem;
+      @return ($line-height * (round($multiplier * 4) / 4) + 0.01) + rem;
     }
 
     @function _nearest-quarter-value-as-rem($line-height, $multiplier) {
