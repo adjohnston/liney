@@ -1,5 +1,6 @@
 {
   "name": "liney",
+  "version": "0.0.2",
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-cleancss": "^0.2.2",
