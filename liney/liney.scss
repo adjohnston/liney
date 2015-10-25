@@ -2,61 +2,105 @@
 //  liney
 //  -----
 
-    @import
+@import
 
-//  settings
-    // 'settings',
-
-
-//  utilities
-    //  variables
-        'variables/typography',
-        'variables/breakpoints',
-
-    //  functions
-        'functions/breakpoint-value-to-em',
-        'functions/gap',
-
-    //  mixins
-        'mixins/define-base-typography',
-        'mixins/text-size';
+'liney-settings',
 
 
-    //  liney guide
-        @if $use-liney-guide {
-          @import 'liney-guide/liney-guide';
-        }
+//  functions
+//  ---------------------------------------------------------------------------
+'functions/breakpoint-value-to-em',
 
+
+//  mixins
+//  ---------------------------------------------------------------------------
+'mixins/define-base-typography',
+'mixins/gaps',
+'mixins/text-size';
+
+
+//  liney guide
+//  ---------------------------------------------------------------------------
+@if $use-liney-guide {
+  @import 'liney-guide/liney-guide';
+}
+
+
+//  liney demo styles
+//  ---------------------------------------------------------------------------
+@import url(https://fonts.googleapis.com/css?family=Rubik:500|Sumana);
 
 
 html {
   @include define-base-typography;
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  @include gaps((2: 'padding-top'));
+
+  font-family: suamana, serif;
+  position: relative;
+}
+
+h1, h2, h3 {
+  font-family: rubik, serif;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+h1, p {
+  @include gaps((1: 'margin-bottom'));
 }
 
 h1 {
-  @include text-size(2.25);
-
-  margin: 0 0 gap();
+  @include text-size(2);
+  @include gaps((
+    1: 'padding-left' 'padding-right'
+  ));
 }
 
 h2 {
-  @include text-size(1.85);
-
-  margin: 0 0 gap();
+  @include text-size(1.43);
+  @include gaps((.5: 'margin-bottom'));
 }
 
 h3 {
-  @include text-size(1.55);
-
-  margin: 0 0 gap();
-}
-
-p {
-  @include text-size;
-
-  margin: 0 0 gap();
+  @include text-size(1.21);
+  @include gaps((.5: 'margin-bottom', .25: 'padding-top'));
 }
 
 small {
   @include text-size(.8);
+
+  display: inline-block;
+  vertical-align: top;
+}
+
+.splash {
+  @include text-size(1.23);
+  @include gaps((
+    1:  'margin-bottom' 'padding-left' 'padding-right',
+    .5: 'padding-top' 'padding-bottom'
+  ));
+
+  background: #e9ecd9;
+}
+
+.col,
+.row {
+  @include gaps((
+    .5: ('padding-left', 'padding-right')
+  ));
+}
+
+.row {
+  min-width: 50%;
+  display: flex;
+  flex-flow: row;
 }
