@@ -2,9 +2,11 @@
 ##### Base Line Height Helpers & Guide Bookmarklet
 
 ## Getting Started
-Firstly you should copy the liney directory into your own Sass architecture. I personally have a third party directory which is included before my own styles.
+Firstly you'll need to grab the Liney Sass and include it in your project.
 
-Create a `_liney-settings.scss` and replace the examples with the necessary styles you need.
+- `npm install adjohnston/liney --save-dev`
+- Reference `liney.scss` in your own Sass (_likely to be `@import node_modules/liney/liney.scss`_)
+- Create a `_liney-settings.scss` and replace the examples with the necessary styles you want.
 
 Finally, if you're using Gulp to parse your Sass I suggest adding `gulp-combine-mq` to merge repeating media queries.
 
