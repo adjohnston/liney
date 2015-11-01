@@ -2,6 +2,14 @@
 //  gaps : mixins
 //  -------------
 
+//  gap
+//  ==  NOTE  =================================================================
+//  return an n amount of gaps in rem.
+//  ==  PARAMS  ===============================================================
+//  @param  {number}  multiplier       -  an n multiplier number.
+//  @param  {number}  base-line-height -  base line multiplier taken from
+//                                        responsive typography map.
+//  ---------------------------------------------------------------------------
 @function _gap($multiplier, $base-line-height) {
   @return $multiplier * $base-line-height + rem;
 }
@@ -10,6 +18,13 @@
 //                                 • • ✪ • •                                 //
 
 
+//  gaps
+//  ==  NOTE  =================================================================
+//  iterate through a map of params and then return styles once they have been
+//  iterated through a map of breakpoints.
+//  ==  PARAM  ================================================================
+//  @param  {object}  gaps  -  a multiplier and list of properties.
+//  ---------------------------------------------------------------------------
 @mixin gaps($gaps) {
   @each $gap, $props in $gaps {
     @each $breakpoint, $bases in $liney-responsive-typography {

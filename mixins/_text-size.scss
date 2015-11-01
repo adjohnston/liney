@@ -1,31 +1,49 @@
-//  ------------------------------
-//  text size : mixins : utilities
-//  ------------------------------
+//  ------------------
+//  text size : mixins
+//  ------------------
 
-    @function _line-height-as-rem($line-height, $multiplier) {
-      @return ($line-height * (round($multiplier * 4) / 4) + 0.01) + rem;
-    }
+//  line height as rem
+//  ==  NOTE  =================================================================
+//  takes a line-height and a multiplier and a returns a new line height value
+//  to the nearest quarter.
+//  ==  PARAM  ================================================================
+//  @param  {number}  line-height  -  line height as a number.
+//  @param  {number}  multiplier   -  a multiplier
+//  ---------------------------------------------------------------------------
+@function _line-height-as-rem($line-height, $multiplier) {
+  @return $line-height * (round($multiplier * 4) / 4) + rem;
+}
 
-    @mixin _line-height($line-height, $multiplier) {
-      line-height: _line-height-as-rem($line-height, $multiplier);
-    }
+
+//                                 • • ✪ • •                                 //
 
 
-    @mixin text-size ($multiplier: 1, $is-responsive: true) {
+//  text size
+//  ==  NOTE  =================================================================
+//  takes a multiplier and returns font size and line height properties and
+//  values, wrapped inside of as many media queries as defined in the
+//  liney-responsive-typography map defined in liney-settings.
+//  ==  PARAM  ================================================================
+//  @param  {number}  multiplier     -  a multiplier for the font size.
+//  @param  {bool}    is-responsive  -  bool for whether or not to include
+//                                      media queries.
+//  ---------------------------------------------------------------------------
+@mixin text-size($multiplier: 1, $is-responsive: true) {
+  @if $is-responsive {
+    @each $breakpoint, $bases in $liney-responsive-typography {
 
-      @if $is-responsive {
-        @each $breakpoint, $bases in $liney-responsive-typography {
+      $line-height: map-get($bases, 'base-line-height');
 
-          $line-height: map-get($bases, 'base-line-height');
-
-          @media (min-width: breakpoint-value-to-em($breakpoint)) {
-            @include _line-height($line-height, $multiplier);
-          }
-
-        }
-      } @else {
-        @include _line-height($base-line-height, $multiplier);
+      @media (min-width: breakpoint-value-to-em($breakpoint)) {
+        @include _line-height-as-rem($line-height, $multiplier);
       }
 
-      font-size: $multiplier + rem;
     }
+  } @else {
+
+    @include _line-height-as-rem($base-line-height, $multiplier);
+
+  }
+
+  font-size: $multiplier + rem;
+}

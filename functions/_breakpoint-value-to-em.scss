@@ -1,10 +1,13 @@
-//  --------------------------------------------
-//  breakpoint value to em : functions : utilities
-//  --------------------------------------------
+//  ----------------------------------
+//  breakpoint value to em : functions
+//  ----------------------------------
 
-    @function _to-em($value) {
-      @return $value / 16px + em;
-    }
+//  to em
+//  ==  NOTE  =================================================================
+//  convert a pixel unit value to an em unit value.
+//  ==  PARAM  ================================================================
+//  @param  {string}  value  -  a pixel unit value.
+//  ---------------------------------------------------------------------------
 
     @function breakpoint-value-to-em($key) {
       $value: $key;
@@ -13,5 +16,12 @@
         $value: map-get($liney-breakpoints, $key);
       }
 
-      @return _to-em($value);
-    }
+//                                 • • ✪ • •                                 //
+
+
+//  breakpoint value to em
+//  ==  NOTE  =================================================================
+//  iterate through the liney breakpoints and return them as an em unit value.
+//  ==  PARAM  ================================================================
+//  @param  {string}  key  -  a key that is found inside of liney breakpoints.
+//  ---------------------------------------------------------------------------
