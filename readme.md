@@ -12,20 +12,20 @@ Finally, if you're using Gulp to parse your Sass I suggest adding `gulp-combine-
 
 ### Changelog
 
+#####`[v0.0.4] - 2015-11-01`
+- Added notes and documentation
+- Remove unnecessary line height mixin
+- General clean up of styles
+
 #####`[v0.0.3] - 2015-10-25`
-###### Changed
 - Folder re-structure so referencing `liney.scss` is cleaner
 - Add `!default` tags so settings can be overwritten
 
 #####`[v0.0.2] - 2015-10-25`
-###### Changed
 - `text-size()` mixin + removed strict-mode
 - Nicer demo styling
 - Better looking guide toggle
-
-###### Added
 - `gaps()` mixin to handle spacing based on `line-height` and not `font-size`
 
 #####`[v0.0.1] - 2015-10-18`
-###### Added
 - Initial release
