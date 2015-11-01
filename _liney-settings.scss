@@ -4,8 +4,11 @@
 
 //  default typography sizes
 //  ---------------------------------------------------------------------------
-$liney-base-font-size:   20px !default;
-$liney-base-line-height: 1.4 !default;
+$liney-base-font-size:   16px !default;
+$liney-base-line-height: 1.5  !default;
+
+
+//                                 • • ✪ • •                                 //
 
 
 //  responsive typography sizes
@@ -22,21 +25,19 @@ $liney-responsive-typography: (
     'base-line-height': 1.5
   ),
 
-  'tab': (
-    'base-font-size': 18px,
-    'base-line-height': 1.56
-  ),
-
   'lap': (
     'base-font-size':   20px,
     'base-line-height': 1.4
   ),
 
   2048px: (
-    'base-font-size':   28px,
-    'base-line-height': 1.43
+    'base-font-size':   32px,
+    'base-line-height': 1.5
   ),
 ) !default;
+
+
+//                                 • • ✪ • •                                 //
 
 
 //  responsive typography base map
@@ -49,11 +50,11 @@ $liney-responsive-typography: (
 //  ---------------------------------------------------------------------------
 $liney-breakpoints: (
   'mob':  0px,
-  'phab': 480px,
-  'tab':  774px,
-  'lap':  992px,
-  'desk': 1440px
+  'lap':  992px
 ) !default;
+
+
+//                                 • • ✪ • •                                 //
 
 
 //  guide
